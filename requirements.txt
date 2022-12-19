@@ -1,0 +1,2 @@
+evaluate
+git+https://github.com/feralvam/easse.git

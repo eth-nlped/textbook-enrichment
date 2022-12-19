@@ -1,0 +1,104 @@
+* {
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+#main_simplified_text_area, .active_response_area, #phases_area, #instruction_area {
+    vertical-align: top;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 20px;
+    background-color: #fff;
+    display: inline-block;
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#main_simplified_text_area {
+    width: 1220px;
+    min-height: 450px;
+    font-size: larger;
+    text-align: justify;
+}
+
+.active_response_area {
+    border-style: dashed;
+    width: 90%;
+    background-color: #d3e2d1;
+    padding: 20px;
+    text-align: left;
+}
+
+.active_response_area img {
+    vertical-align: top;
+    max-width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.active_response_area div {
+    vertical-align: top;
+    display: inline-block;
+    max-width: 45%;
+}
+
+.active_response_area div input {
+    display: inline-block;
+}
+
+
+#instruction_area {
+    width: 850px;
+    text-align: left;
+}
+
+#phases_area {
+    text-align: left;
+    width: 300px;
+    line-height: 1.8em;
+}
+
+.phase_progress, .phase_done, .phase_locked {
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;
+    padding-bottom: 5px;
+    padding-top: 0px;
+    height: 18px;
+    float: right;
+}
+
+#phases_area .phase_progress {
+    font-weight: bold;
+    background-color: #fdf;
+    border-color: #cbc;
+}
+
+#phases_area .phase_done {
+    font-style: italic;
+    background-color: #dfd;
+    border-color: #bcb;
+}
+
+#phases_area .phase_locked {
+    font-style: italic;
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+#but_next, #but_prev {
+    width: 145px;
+    height: 40px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 22px;
+}
+
+.hi_input_val {
+    margin-left: 150px;
+}
+.hi_input_label {
+    margin-left: 20px;
+    vertical-align: top;
+}

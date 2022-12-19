@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=0.9"> -->
+    <meta name="theme-color" content="#efefef">
+
+    <title>Textbook Enrichment Evaluation</title>
+    <link rel="shortcut icon" href="#" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto&display=swap'>
+    <link rel='stylesheet' type='text/css' href='style.css?r=2'>
+</head>
+
+<body style='text-align: center; margin-bottom: 20px; background-color: #ebe2d9;'>
+    <span style="margin-left: auto; margin-right: auto; font-size: x-large;">Textbook Enrichment Evaluation</span>
+
+    <div id="progress"></div>
+    
+    <div id="instruction_area">
+        <b>Instructions:</b>
+        Proper guidelines are TODO <br><br>
+
+        Currently, treat 1 as maximally negative and 5 as maximally positive answer.<br><br>
+
+        Note: The code is not yet plugged in as we're still iterating on the questions, etc.
+    </div>
+
+    <div id="phases_area">
+        <b>Progress: 1/1</b>
+        <br>
+
+        <input id="but_prev" type="button" value="Previous" style="margin-left: 5px">
+        <input id="but_next" type="button" value="Next">
+    </div>
+
+    <br>
+
+    <div id="main_simplified_text_area">
+        loading
+
+        <div class="active_response_area">
+            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fassets.dmagstatic.com%2Fwp-content%2Fuploads%2F2015%2F01%2F8698969643_1340fb2829_k.jpg&f=1&nofb=1&ipt=f81c600b4692ba04b71138b13a6ccf441dbc012177a08e5125ae1a725ad1854a&ipo=images">
+            <!-- <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-loh0BegGmQg%2FTziVxft3SEI%2FAAAAAAAAAtE%2FtdEQ6r2Pn7k%2Fs1600%2F600px-Hausziege_04.jpg&f=1&nofb=1&ipt=88b395db5ad800f933c639c002a2e4d7f5de6fc6740414c62f9959e69496491f&ipo=images"> -->
+            <div>
+                How much does the image cover <b>all</b> important aspects in the text? <br>
+                <input type="range" min="0" max="5" value="3"> ?<br>
+                
+                How much does the image cover <b>only</b> important aspects in the text and nothing more? <br>
+                <input type="range" min="0" max="5" value="3"> ?<br>
+                
+                How much is the image well incorporated with respect to the other shown images? <br>
+                <input type="range" min="0" max="5" value="3"> ?<br>
+                
+                How likely would you choose this or some other image to maximize the didactical utility of a textbook? <br>
+                <input type="range" min="0" max="5" value="3"> ?<br>
+            <div>
+        </div>
+    </div>
+
+    <!-- <script src='web-source.js?r=0'></script> -->
+</body>
+
+</html>
