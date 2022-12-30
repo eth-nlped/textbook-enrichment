@@ -13,7 +13,7 @@ globalThis.uid = urlParams.get('uid');
 globalThis.data_i = parseInt(urlParams.get("data_i"))-1 || 0;
 
 function prolific_rewrite_uid(uid) {
-    if (uid != "prolific_onestopqa_pilot_1") {
+    if (uid != "prolific_pilot_1") {
         return uid
     }
 
@@ -23,7 +23,7 @@ function prolific_rewrite_uid(uid) {
     globalThis.prolific_pid = urlParams.get('prolific_pid');
     console.log(globalThis.prolific_pid)
 
-    return `prolific_onestopqa_pilot_1/s${slot}`
+    return `prolific_pilot_1/s${slot}`
 }
 
 async function get_uid_and_data() {

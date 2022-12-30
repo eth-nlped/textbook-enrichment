@@ -18,23 +18,24 @@ export async function load_data(): Promise<any> {
 }
 
 export async function log_data(data): Promise<any> {
-    if (globalThis.prolific_pid != undefined) {
-        data["prolific_pid"] = globalThis.prolific_pid
-    }
+    return {}
+    // if (globalThis.prolific_pid != undefined) {
+    //     data["prolific_pid"] = globalThis.prolific_pid
+    // }
 
-    let result = await $.ajax(
-        SERVER_LOG_ROOT + "log",
-        {
-            data: JSON.stringify({
-                project: "tsip",
-                uid: globalThis.uid,
-                prolific_pid: globalThis.prolific_pid,
-                payload: JSON.stringify(data),
-            }),
-            type: 'POST',
-            contentType: 'application/json',
-        }
-    )
-    console.log(result)
-    return result
+    // let result = await $.ajax(
+    //     SERVER_LOG_ROOT + "log",
+    //     {
+    //         data: JSON.stringify({
+    //             project: "tsip",
+    //             uid: globalThis.uid,
+    //             prolific_pid: globalThis.prolific_pid,
+    //             payload: JSON.stringify(data),
+    //         }),
+    //         type: 'POST',
+    //         contentType: 'application/json',
+    //     }
+    // )
+    // console.log(result)
+    // return result
 }
