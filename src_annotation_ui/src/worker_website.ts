@@ -18,10 +18,12 @@ function load_headers() {
 function setup_main_text() {
     // let html_text = `<b>${globalThis.data_now["title"]}</b><br>${globalThis.data_now["text"]}`;
     let out_html = ""
+    console.log(globalThis.data_now["imgs"])
     zip(globalThis.data_now["texts"], globalThis.data_now["imgs"]).forEach((element) => {
         let text_path = element[0];
         let text_el = `<iframe src="texts/${text_path}" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>`;
         out_html += text_el;
+        console.log(element)
         let imgs = element[1];
         if(imgs.length == 0) {
             return;
