@@ -15,6 +15,23 @@ function load_headers() {
     `)
 }
 
+function check_unlocks() {
+    let unlock_global = Object.keys(globalThis.responses).every((k, index, array) =>{
+        return Object.keys(globalThis.responses[k]).length >= 4
+    })
+    if (unlock_global) {
+        $(".active_response_area input[disabled]").each((index, el) => {
+            $(el).removeAttr("disabled")
+        })
+    }
+    let unlock_next = Object.keys(globalThis.responses).every((k, index, array) =>{
+        return Object.keys(globalThis.responses[k]).length >= 4
+    })
+    if (unlock_next) {
+        $("#but_next").prop("disabled", false);
+    }
+}
+
 function setup_main_text() {
     // let html_text = `<b>${globalThis.data_now["title"]}</b><br>${globalThis.data_now["text"]}`;
     let out_html = ""
@@ -37,7 +54,8 @@ function setup_main_text() {
         out_html += "</div>"
     })
     
-    out_html += global_response_template.html().replaceAll('template=""', 'id="s_final"')
+    // don't add global questions
+    // out_html += global_response_template.html().replaceAll('template=""', 'id="s_final"')
     main_text_area.html("");
     main_text_area.append($(out_html));
 
@@ -56,6 +74,8 @@ function setup_main_text() {
             })
             $(el).attr("responseselect", "true")
             globalThis.responses[parent_id][group]=$(el).val()
+
+            check_unlocks()
         })
     })
 
@@ -77,12 +97,15 @@ function setup_main_text() {
                 globalThis.responses[parent_id][group][$(el).val() as string] = "ok"
                 $(el).attr("responseselect", "true")
             }
+
+            check_unlocks()
         })
     })
 }
 
 function load_cur_text() {
     globalThis.responses = {}
+    globalThis.responsesExpectedCountUnlock = 0
     globalThis.responsesExpectedCount = 0
     load_headers()
     setup_main_text()
@@ -93,8 +116,9 @@ function load_thankyou() {
     load_headers()
     let html_text = `Thank you for participating in our study. `;
     if (globalThis.uid.startsWith("prolific_pilot_1")) {
-        html_text += `<br>Please click <a href="https://app.prolific.co/submissions/complete?cc=C67G3X5Y">this link</a> to go back to Prolific. `
-        html_text += `Alternatively use this code <em>C67G3X5Y</em>.`
+        // TODO!!!
+        html_text += `<br>TODO Please click <a href="https://app.prolific.co/submissions/complete?cc=XXXXXX">this link</a> to go back to Prolific. `
+        html_text += `Alternatively use this code <em>XXXX</em>.`
     }
     main_text_area.html(html_text);
 }
@@ -103,31 +127,34 @@ function setup_navigation() {
     $("#but_next").on("click", () => {
         globalThis.data_i += 1;
 
-        // globalThis.data_log.times.push(Date.now())
-        // log_data(globalThis.data_log)
-
+        globalThis.data_now["end_time"] = Date.now()
+        globalThis.data_now["responses"] = globalThis.responses
+        log_data(globalThis.data_now)
+        
         if (globalThis.data_i >= globalThis.data.length) {
             globalThis.data_i = 0;
             load_thankyou()
         } else {
             globalThis.data_now = globalThis.data[globalThis.data_i];
+            globalThis.data_now["start_time"] = Date.now()
             load_cur_text()
         }
 
         $("#but_prev").prop("disabled", globalThis.data_i == 0);
         $("#but_next").prop("disabled", globalThis.data_i == globalThis.data.length-1);
     })
+    
+    // $("#but_prev").on("click", () => {
+    //     globalThis.data_i -= 1;
+    //     $("#but_prev").prop("disabled", globalThis.data_i == 0);
+    //     $("#but_next").prop("disabled", globalThis.data_i == globalThis.data.length-1);
+        
+    //     globalThis.data_now = globalThis.data[globalThis.data_i];
+    //     load_cur_text()
+    // })
 
-    $("#but_prev").on("click", () => {
-        globalThis.data_i -= 1;
-        $("#but_prev").prop("disabled", globalThis.data_i == 0);
-        $("#but_next").prop("disabled", globalThis.data_i == globalThis.data.length-1);
-
-        globalThis.data_now = globalThis.data[globalThis.data_i];
-        load_cur_text()
-    })
-
-    $("#but_prev").prop("disabled", true);
+    // $("#but_prev").prop("disabled", true);
+    $("#but_next").prop("disabled", true);
 }
 
 

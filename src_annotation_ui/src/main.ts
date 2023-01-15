@@ -17,6 +17,7 @@ function prolific_rewrite_uid(uid) {
         return uid
     }
 
+    // random queue
     let slots = range(0, 99).map((x) => String(x).padStart(2, "0"));
     let slot = slots[Math.floor(Math.random() * slots.length)];
 
