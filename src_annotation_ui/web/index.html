@@ -64,9 +64,6 @@
 
         This study assumes that you've read the detailed instructions.
         If you did not, or are unsure, please <a href="instructions.html" target="_blank">read them here</a>.
-
-
-        TODO Vilém: end of section global evaluation
     </div>
 
     <div id="phases_area">
@@ -83,56 +80,54 @@
 
 
     <div id="local_response_template">
-        <div class="active_response_area">
+        <div class="active_response_area" template="">
             <img src="images/IMAGE_TEMPLATE" loading="lazy">
             <div>
-
                 Is this image relevant to educational concepts described in this text? <br>
-                <input type="button" value="irrelevant">
-                <input type="button" value="somewhat relevant">
-                <input type="button" value="relevant">
-                <input type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
-                <br><br>
-
-                Is this image relevant to educational concepts described in the whole page?<br>
-                <input type="button" value="irrelevant">
-                <input type="button" value="somewhat relevant">
-                <input type="button" value="relevant">
-                <input type="button" value="undecided">
+                <input group="l_local_relevancy" type="button" value="irrelevant">
+                <input group="l_local_relevancy" type="button" value="somewhat relevant">
+                <input group="l_local_relevancy" type="button" value="relevant">
+                <input group="l_local_relevancy" type="button" value="undecided">
                 <span class="check_hint">(select one)</span>
                 <br><br>
 
                 Is this image redundant for this text compared to images shown before?<br>
-                <input type="button" value="no">
-                <input type="button" value="yes">
-                <input type="button" responseselect value="undecided">
+                <input group="l_local_redundancy" type="button" value="no">
+                <input group="l_local_redundancy" type="button" value="yes">
+                <input group="l_local_redundancy" type="button" value="undecided">
                 <span class="check_hint">(select one)</span>
                 <br><br>
-
-                Is this image redundant for the whole page compared to images shown before?<br>
-                <input type="button" responseselect value="no">
-                <input type="button" value="yes">
-                <input type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
-                <br><br>
-
+                
                 Is this image didactically useful for explaining this text?<br>
-                <input type="button" value="no">
-                <input type="button" responseselect value="yes">
-                <input type="button" value="undecided">
+                <input group="l_local_useful" type="button" value="no">
+                <input group="l_local_useful" type="button" value="yes">
+                <input group="l_local_useful" type="button" value="undecided">
                 <span class="check_hint">(select one)</span>
                 <br><br>
 
                 What is included in this image?<br>
-                <input multiplechoice type="button" value="natural image">
-                <input multiplechoice type="button" responseselect value="diagram / flowchart">
-                <input multiplechoice type="button" value="graph / plot">
-                <input multiplechoice type="button" value="table">
-                <input multiplechoice type="button" value="readable text">
-                <input multiplechoice type="button" value="multiple images">
+                <input multiplechoice group="l_what_included" type="button" value="natural image">
+                <input multiplechoice group="l_what_included" type="button" value="diagram / flowchart">
+                <input multiplechoice group="l_what_included" type="button" value="graph / plot">
+                <input multiplechoice group="l_what_included" type="button" value="table">
+                <input multiplechoice group="l_what_included" type="button" value="readable text">
+                <input multiplechoice group="l_what_included" type="button" value="multiple images">
                 <span class="check_hint">(check all that apply)</span>
                 <br><br>
+
+                Is this image relevant to educational concepts described in the whole page?<br>
+                <input disabled group="l_global_relevant" type="button" value="irrelevant">
+                <input disabled group="l_global_relevant" type="button" value="somewhat relevant">
+                <input disabled group="l_global_relevant" type="button" value="relevant">
+                <input disabled group="l_global_relevant" type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
+                <br><br>
+                
+                Is this image redundant for the whole page compared to images shown before?<br>
+                <input disabled group="l_global_redundancy" type="button" value="no">
+                <input disabled group="l_global_redundancy" type="button" value="yes">
+                <input disabled group="l_global_redundancy" type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
             </div>
         </div>
     </div>
@@ -144,54 +139,22 @@
                 <h3>Global question</h3>
                 These questions relate to all the previously shown images.
             </div>
-            <div class="active_response_area active_response_area_global">
+            <div class="active_response_area active_response_area_global"  template="">
                 <div>
                     TODO question<br>
-                    <input type="button" value="irrelevant">
-                    <input type="button" value="somewhat relevant">
-                    <input type="button" value="relevant">
-                    <input type="button" value="undecided">
+                    <input group="g_question_1" type="button" value="irrelevant">
+                    <input group="g_question_1" type="button" value="somewhat relevant">
+                    <input group="g_question_1" type="button" value="relevant">
+                    <input group="g_question_1" type="button" value="undecided">
                     <span class="check_hint">(select one)</span>
                     <br><br>
 
                     TODO question<br>
-                    <input type="button" value="irrelevant">
-                    <input type="button" value="somewhat relevant">
-                    <input type="button" value="relevant">
-                    <input type="button" value="undecided">
+                    <input group="g_question_2" type="button" value="irrelevant">
+                    <input group="g_question_2" type="button" value="somewhat relevant">
+                    <input group="g_question_2" type="button" value="relevant">
+                    <input group="g_question_2" type="button" value="undecided">
                     <span class="check_hint">(select one)</span>
-                    <br><br>
-
-                    TODO question<br>
-                    <input type="button" value="no">
-                    <input type="button" value="yes">
-                    <input type="button" responseselect value="undecided">
-                    <span class="check_hint">(select one)</span>
-                    <br><br>
-
-                    TODO question<br>
-                    <input type="button" responseselect value="no">
-                    <input type="button" value="yes">
-                    <input type="button" value="undecided">
-                    <span class="check_hint">(select one)</span>
-                    <br><br>
-
-                    TODO question<br>
-                    <input type="button" value="no">
-                    <input type="button" responseselect value="yes">
-                    <input type="button" value="undecided">
-                    <span class="check_hint">(select one)</span>
-                    <br><br>
-
-                    TODO question<br>
-                    <input multiplechoice type="button" value="natural image">
-                    <input multiplechoice type="button" responseselect value="diagram / flowchart">
-                    <input multiplechoice type="button" value="graph / plot">
-                    <input multiplechoice type="button" value="table">
-                    <input multiplechoice type="button" value="readable text">
-                    <input multiplechoice type="button" value="multiple images">
-                    <span class="check_hint">(check all that apply)</span>
-                    <br><br>
                 </div>
             </div>
         </div>

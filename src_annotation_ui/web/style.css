@@ -103,12 +103,12 @@ a {
     background-color: #7c857c;
 }
 
-.active_response_area div input[type=button]:hover {
+.active_response_area div input[type=button]:hover:not(:disabled) {
     background-color: #bbb;
     cursor: pointer;
 }
 
-.active_response_area div input[type=button]:active {
+.active_response_area div input[type=button]:active:not(:disabled) {
     border: 2px solid gray;
     cursor: pointer;
 }

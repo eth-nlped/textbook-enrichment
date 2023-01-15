@@ -20,26 +20,63 @@ function setup_main_text() {
     // let html_text = `<b>${globalThis.data_now["title"]}</b><br>${globalThis.data_now["text"]}`;
     let out_html = ""
     console.log(globalThis.data_now["imgs"])
-    zip(globalThis.data_now["texts"], globalThis.data_now["imgs"]).forEach((element) => {
+    zip(globalThis.data_now["texts"], globalThis.data_now["imgs"]).forEach((element, s_index) => {
         let text_path = element[0];
         let text_el = `<iframe src="texts/${text_path}" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>`;
         out_html += "<div class='subsection_area'>";
         out_html += text_el;
         console.log(element)
         let imgs = element[1];
-        console.log("XXX", imgs)
-        imgs.forEach((img_path) => {
+        imgs.forEach((img_path, q_index) => {
             let response_template = local_response_template.html();
             response_template = response_template.replaceAll("IMAGE_TEMPLATE", img_path);
             // remove lazy loading flag
             response_template = response_template.replaceAll('loading="lazy"', "");
+            // remove TEMPLATE flag
+            response_template = response_template.replaceAll('template=""', `id="s_${s_index}_q_${q_index}" s_index="${s_index}" q_index=${q_index}`);
             out_html += response_template;
         })
         out_html += "</div>"
     })
     
-    out_html += global_response_template.html()
-    main_text_area.html(out_html);
+    out_html += global_response_template.html().replaceAll('template=""', 'id="s_final"')
+    main_text_area.html("");
+    main_text_area.append($(out_html));
+
+    // select all untemplated ones
+    // select radio buttons
+    $(".subsection_area:not([template]) div input:not([multiplechoice])").each((index, el) => {
+        $(el).on("click", (event) => {
+            let parent = $($(el).parents(".active_response_area")[0])
+            let parent_id = parent.attr("id")
+            let group = $(el).attr("group")
+
+            // clear selection from siblings
+            let siblings = $(`#${parent_id} input[group="${group}"]`)
+            siblings.each((_, el) => {
+                $(el).removeAttr("responseselect")
+            })
+            $(el).attr("responseselect", "true")
+            // TODO: store data
+        })
+    })
+
+    // select multiple choice buttons
+    $(".subsection_area:not([template]) div input[multiplechoice]").each((index, el) => {
+        $(el).on("click", (event) => {
+            let parent = $($(el).parents(".active_response_area")[0])
+            let parent_id = parent.attr("id")
+            let group = $(el).attr("group")
+
+            // clear selection from siblings
+            if ($(el).attr("responseselect")) {
+                $(el).removeAttr("responseselect")
+            } else {
+                $(el).attr("responseselect", "true")
+            }
+            // TODO: store data
+        })
+    })
 }
 
 function load_cur_text() {
