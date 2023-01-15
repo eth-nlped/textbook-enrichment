@@ -2,7 +2,7 @@
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-#main_text_area, .active_response_area, #phases_area, #instruction_area {
+#main_text_area, .active_response_area, #phases_area, #instruction_area, #instruction_area_big {
     vertical-align: top;
     margin-top: 20px;
     border: 2px solid black;
