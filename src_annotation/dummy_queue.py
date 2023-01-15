@@ -5,7 +5,9 @@ import json
 import os
 import random
 
-subsection = "science/biology_2e/2-1"
+subsection = "science/biology_2e/2-2"
+subsection = "science/biology_2e/2-3"
+subsection = "science/univeristy_physics/1-4"
 MODES=["retrievals_local", "retrievals_joint", "retrievals_global", "gold"]
 
 def check_img_exists(path):
