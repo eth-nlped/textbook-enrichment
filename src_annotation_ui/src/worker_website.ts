@@ -9,7 +9,6 @@ let global_response_template = $("#global_response_template")
 const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 
 function load_headers() {
-    console.log(globalThis.data.length)
     $("#progress").html(`
         <strong>Progress:</strong> ${globalThis.data_i + 1}/${globalThis.data.length}<br>
         <strong>UID:</strong> ${globalThis.uid}
@@ -19,15 +18,14 @@ function load_headers() {
 function setup_main_text() {
     // let html_text = `<b>${globalThis.data_now["title"]}</b><br>${globalThis.data_now["text"]}`;
     let out_html = ""
-    console.log(globalThis.data_now["imgs"])
     zip(globalThis.data_now["texts"], globalThis.data_now["imgs"]).forEach((element, s_index) => {
         let text_path = element[0];
         let text_el = `<iframe src="texts/${text_path}" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>`;
         out_html += "<div class='subsection_area'>";
         out_html += text_el;
-        console.log(element)
         let imgs = element[1];
         imgs.forEach((img_path, q_index) => {
+            globalThis.responses[`s_${s_index}_q_${q_index}`] = {}
             let response_template = local_response_template.html();
             response_template = response_template.replaceAll("IMAGE_TEMPLATE", img_path);
             // remove lazy loading flag
@@ -57,7 +55,7 @@ function setup_main_text() {
                 $(el).removeAttr("responseselect")
             })
             $(el).attr("responseselect", "true")
-            // TODO: store data
+            globalThis.responses[parent_id][group]=$(el).val()
         })
     })
 
@@ -68,18 +66,24 @@ function setup_main_text() {
             let parent_id = parent.attr("id")
             let group = $(el).attr("group")
 
-            // clear selection from siblings
+            if (globalThis.responses[parent_id][group] == undefined) {
+                globalThis.responses[parent_id][group] = {}
+            }
+
             if ($(el).attr("responseselect")) {
+                delete globalThis.responses[parent_id][group][$(el).val() as string]
                 $(el).removeAttr("responseselect")
             } else {
+                globalThis.responses[parent_id][group][$(el).val() as string] = "ok"
                 $(el).attr("responseselect", "true")
             }
-            // TODO: store data
         })
     })
 }
 
 function load_cur_text() {
+    globalThis.responses = {}
+    globalThis.responsesExpectedCount = 0
     load_headers()
     setup_main_text()
 }
