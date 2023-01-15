@@ -3,12 +3,10 @@
 import glob
 import json
 import os
+import random
 
 subsection = "science/biology_2e/2-1"
-MODE="gold"
-MODE="retrievals_local"
-MODE="retrievals_global"
-MODE="retrievals_joint"
+MODES=["retrievals_local", "retrievals_joint", "retrievals_global", "gold"]
 
 subsection_texts = [
     f.removeprefix("src_annotation_ui/web/texts/") for f in
@@ -33,40 +31,34 @@ def try_find_image_retrieval(img):
     else:
         return None
 
-def try_find_image_gold(img):
-    img = img.replace("-", "/", 1)
-    *img_base, signature = img.split("/")
-    img_base = "/".join(img_base)
+def try_find_images_gold(path):
+    imgs = []
+    for i in range(10):
+        img_hyp = try_find_image_retrieval("retrivals_local/"+ path +f"/gold/{i}")
+        if not img_hyp:
+            break
+        imgs.append(img_hyp)
+    return imgs
 
-    if signature.count("-") != 2:
-        return None
-    s1, s2, s3 = signature.split("-")
-    # error on Janvijay's side probably
-    img = img_base+"/"+f"{s1}.{s2}.{s1}.{s3}.jpeg"
-    if check_img_exists(img):
-        return img
-    return None
-
-def try_find_image(img):
-    img_hyp = try_find_image_retrieval(img+"/pred/0")
-    if img_hyp:
-        return img_hyp
-    img_hyp = try_find_image_gold(img)
-    if img_hyp:
-        return img_hyp
-    return None
+def try_find_images_retrieval(path):
+    imgs = []
+    for i in range(10):
+        img_hyp = try_find_image_retrieval(path +f"/pred/{i}")
+        if not img_hyp:
+            break
+        imgs.append(img_hyp)
+    return imgs
     
 imgs = []
 for line in subsection_texts:
     *chapter, section, secsubsec = line.removesuffix(".htm").split("/")
-    
-    img = f"{MODE}/{'/'.join(chapter)}-{secsubsec}"
-    img = try_find_image(img)
-    if img:
-        imgs.append([img])
+    mode = random.sample(MODES)
+    if mode == "gold":
+        imgs_local = try_find_images_gold('/'.join(chapter) + f"-{secsubsec}")
     else:
-        imgs.append([])
-
+        path = f"{mode}/{'/'.join(chapter)}-{secsubsec}"
+        imgs_local = try_find_images_retrieval(path)
+    imgs.append(imgs_local)
 
 line_out = {
     "subsection": subsection,

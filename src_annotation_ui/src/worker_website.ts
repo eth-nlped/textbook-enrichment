@@ -3,7 +3,8 @@ import { DEVMODE } from "./globals";
 import { getIndicies } from "./utils";
 
 let main_text_area = $("#main_text_area")
-let active_response_area_template = $("#active_response_area_template")
+let local_response_template = $("#local_response_template")
+let global_response_template = $("#global_response_template")
 
 const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 
@@ -22,20 +23,25 @@ function setup_main_text() {
     zip(globalThis.data_now["texts"], globalThis.data_now["imgs"]).forEach((element) => {
         let text_path = element[0];
         let text_el = `<iframe src="texts/${text_path}" frameborder="0" scrolling="no" onload="resizeIframe(this)"></iframe>`;
+        out_html += "<div class='subsection_area'>";
         out_html += text_el;
         console.log(element)
         let imgs = element[1];
         if(imgs.length == 0) {
+            out_html += "</div>"
             return;
         }
         // TODO: take just the first image for now
         let img_path = imgs[0]
-        let response_template = active_response_area_template.html();
+        let response_template = local_response_template.html();
         response_template = response_template.replaceAll("IMAGE_TEMPLATE", img_path);
         // remove lazy loading flag
         response_template = response_template.replaceAll('loading="lazy"', "");
         out_html += response_template;
+        out_html += "</div>"
     })
+    
+    out_html += global_response_template.html()
     main_text_area.html(out_html);
 }
 

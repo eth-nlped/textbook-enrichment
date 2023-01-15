@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    
+
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -17,13 +17,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         function resizeIframe(obj) {
-          obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
         }
     </script>
-      
+
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto&display=swap'>
-    <link rel='stylesheet' type='text/css' href='style.css?r=6'>
+    <link rel='stylesheet' type='text/css' href='style.css?r=8'> 
 </head>
 
 <body style='text-align: center; margin-bottom: 20px; background-color: #ebe2d9;'>
@@ -31,32 +31,42 @@
 
     <div id="instruction_area">
         <!-- <b>Instructions:</b> -->
-        Options concerning relevancy questions: 
+        Options concerning relevancy questions:
         <ul>
             <li>relevant: some concept described in the subsection text is picturised in the image; </li>
-            <li>somewhat-relevant: image is loosely on the same subject/topic domain as the subsection text, but is not exactly about the same concepts; </li>
+            <li>somewhat-relevant: image is loosely on the same subject/topic domain as the subsection text, but is not
+                exactly about the same concepts; </li>
             <li>irrelevant: not at all related to the subsection text.</li>
             <li>undecided: unable to make a decision, maybe because of my low understanding of the text or image.</li>
         </ul>
-        
-        Options concerning redundancy questions: 
+
+        Options concerning redundancy questions:
         <ul>
-            <li>yes: this image illustrates exactly the same concept as one of the previously shown images in the subsection (or section, if end-of-section evaluation);</li>
-            <li>no: this image illustrates atleast some unique concepts as compared to the previously shown images in the subsection (or section, if end-of-section evaluation);</li>
-            <li>undecided: unable to make a decision, maybe because I do not understand the concepts illustrated by this image.</li>
+            <li>yes: this image illustrates exactly the same concept as one of the previously shown images in the
+                subsection (or whole page);</li>
+            <li>no: this image illustrates atleast some unique concepts as compared to the previously shown images in
+                the subsection (or whole page);</li>
+            <li>undecided: unable to make a decision, maybe because I do not understand the concepts illustrated by this
+                image.</li>
         </ul>
 
         Options concerning didactic usefulness questions:
         <ul>
-            <li>yes: image will be appropriate for teaching the section to a student - I would like it here (with an appropriate caption) if I was learning from this textbook;</li>
+            <li>yes: image will be appropriate for teaching the section to a student - I would like it here (with an
+                appropriate caption) if I was learning from this textbook;</li>
             <li>no: image is not appropriate for teaching the section text; </li>
-            <li>undecided: unable to make the decision, maybe because of my less understanding of the text or image.</li>
+            <li>undecided: unable to make the decision, maybe because of my less understanding of the text or image.
+            </li>
         </ul>
 
-        You're required to answer the questions as they appear in the section layout, since order is important for redundancy related questions.
+        You're required to answer the questions as they appear in the section layout, since order is important for
+        redundancy related questions.
 
         This study assumes that you've read the detailed instructions.
         If you did not, or are unsure, please <a href="instructions.html" target="_blank">read them here</a>.
+
+
+        TODO Vilém: end of section global evaluation
     </div>
 
     <div id="phases_area">
@@ -71,45 +81,122 @@
     <div id="main_text_area">
     </div>
 
-    <div id="active_response_area_template">
+
+    <div id="local_response_template">
         <div class="active_response_area">
             <img src="images/IMAGE_TEMPLATE" loading="lazy">
             <div>
-                The image describes important educational concepts in the textbook shown here.<br>
-                <input type="button" value="strongly disagree">
-                <input type="button" value="disagree">
-                <input type="button" value="neutral">
-                <input type="button" value="agree">
-                <input type="button" value="strongly agree">
+
+                Is this image relevant to educational concepts described in this text? <br>
+                <input type="button" value="irrelevant">
+                <input type="button" value="somewhat relevant">
+                <input type="button" value="relevant">
+                <input type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
                 <br><br>
-                
-                The image covers only important aspects taught in the textbook and nothing more.<br>
-                <input type="button" value="strongly disagree">
-                <input type="button" value="disagree">
-                <input type="button" value="neutral">
-                <input type="button" responseselect value="agree">
-                <input type="button" value="strongly agree">
+
+                Is this image relevant to educational concepts described in the whole page?<br>
+                <input type="button" value="irrelevant">
+                <input type="button" value="somewhat relevant">
+                <input type="button" value="relevant">
+                <input type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
                 <br><br>
-                
-                This image is useful and not redundant given the other images shown in the textbook.<br>
-                <input type="button" value="strongly disagree">
-                <input type="button" value="disagree">
-                <input type="button" value="neutral">
-                <input type="button" value="agree">
-                <input type="button" value="strongly agree">
+
+                Is this image redundant for this text compared to images shown before?<br>
+                <input type="button" value="no">
+                <input type="button" value="yes">
+                <input type="button" responseselect value="undecided">
+                <span class="check_hint">(select one)</span>
                 <br><br>
-                
-                This image helps improve the understanding of the textbook, and thereby its didactical utility.<br>
-                <input type="button" value="strongly disagree">
-                <input type="button" responseselect value="disagree">
-                <input type="button" value="neutral">
-                <input type="button" value="agree">
-                <input type="button" value="strongly agree">
+
+                Is this image redundant for the whole page compared to images shown before?<br>
+                <input type="button" responseselect value="no">
+                <input type="button" value="yes">
+                <input type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
+                <br><br>
+
+                Is this image didactically useful for explaining this text?<br>
+                <input type="button" value="no">
+                <input type="button" responseselect value="yes">
+                <input type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
+                <br><br>
+
+                What is included in this image?<br>
+                <input multiplechoice type="button" value="natural image">
+                <input multiplechoice type="button" responseselect value="diagram / flowchart">
+                <input multiplechoice type="button" value="graph / plot">
+                <input multiplechoice type="button" value="table">
+                <input multiplechoice type="button" value="readable text">
+                <input multiplechoice type="button" value="multiple images">
+                <span class="check_hint">(check all that apply)</span>
                 <br><br>
             </div>
         </div>
     </div>
-    <script src='web-source.js?r=3'></script>
+
+
+    <div id="global_response_template">
+        <div class="subsection_area">
+            <div style="margin-left: 10px;">
+                <h3>Global question</h3>
+                These questions relate to all the previously shown images.
+            </div>
+            <div class="active_response_area active_response_area_global">
+                <div>
+                    TODO question<br>
+                    <input type="button" value="irrelevant">
+                    <input type="button" value="somewhat relevant">
+                    <input type="button" value="relevant">
+                    <input type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+
+                    TODO question<br>
+                    <input type="button" value="irrelevant">
+                    <input type="button" value="somewhat relevant">
+                    <input type="button" value="relevant">
+                    <input type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+
+                    TODO question<br>
+                    <input type="button" value="no">
+                    <input type="button" value="yes">
+                    <input type="button" responseselect value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+
+                    TODO question<br>
+                    <input type="button" responseselect value="no">
+                    <input type="button" value="yes">
+                    <input type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+
+                    TODO question<br>
+                    <input type="button" value="no">
+                    <input type="button" responseselect value="yes">
+                    <input type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+
+                    TODO question<br>
+                    <input multiplechoice type="button" value="natural image">
+                    <input multiplechoice type="button" responseselect value="diagram / flowchart">
+                    <input multiplechoice type="button" value="graph / plot">
+                    <input multiplechoice type="button" value="table">
+                    <input multiplechoice type="button" value="readable text">
+                    <input multiplechoice type="button" value="multiple images">
+                    <span class="check_hint">(check all that apply)</span>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='web-source.js?r=4'></script>
 </body>
 
 </html>

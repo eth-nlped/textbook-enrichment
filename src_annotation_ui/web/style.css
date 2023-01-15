@@ -2,7 +2,7 @@
     font-family: Roboto, Arial, Helvetica, sans-serif;
 }
 
-#main_text_area, .active_response_area, #phases_area, #instruction_area, #instruction_area_big {
+.subsection_area, #main_text_area, .active_response_area, #phases_area, #instruction_area, #instruction_area_big {
     vertical-align: top;
     margin-top: 20px;
     border: 2px solid black;
@@ -17,13 +17,26 @@
 #main_text_area {
     width: 1220px;
     min-height: 450px;
-    font-size: larger;
+    font-size: 1.1em;
     text-align: justify;
+    border: none;
+    background-color: transparent;
 }
 
-#active_response_area_template {
+.subsection_area {
+    /* weird hotfix */
+    margin-left: -20px;
+    margin-right: 0;
+    width: 100%
+}
+
+#local_response_template, #global_response_template {
     display: none;
     visibility: none;
+}
+
+.check_hint {
+    font-size: small;
 }
 
 #main_text_area iframe {
@@ -34,6 +47,7 @@
     padding: 20px;
     padding-bottom: 0px;
     margin-bottom: -10px;
+    margin-top: -20px;
 }
 
 .active_response_area {
@@ -46,9 +60,9 @@
 
 .active_response_area img {
     vertical-align: top;
-    max-width: 44%;
-    margin-left: 2%;
-    margin-right: 2%;
+    max-width: 40%;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 a {
@@ -58,9 +72,14 @@ a {
 
 .active_response_area div {
     vertical-align: top;
-    max-width: 51%;
+    max-width: 58%;
     /* display: inline-block; */
     float: right;
+}
+
+.active_response_area_global div {
+    width: 100%;
+    max-width: 100%;
 }
 
 .active_response_area div input {
@@ -71,7 +90,11 @@ a {
     display: inline-block;
     border: 2px solid black;
     background-color: white;
-    width: 111px;
+    width: 130px;
+}
+
+.active_response_area div input[multiplechoice] {
+    width: 150px;
 }
 
 .active_response_area div input[responseselect] {
