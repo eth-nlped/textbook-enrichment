@@ -20,7 +20,7 @@ function check_unlocks() {
         return Object.keys(globalThis.responses[k]).length >= 4
     })
     if (unlock_global) {
-        $(".active_response_area input[disabled]").each((index, el) => {
+        $(".active_response_area:not([template]) input[disabled]").each((index, el) => {
             $(el).removeAttr("disabled")
         })
     }
