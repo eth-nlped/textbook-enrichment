@@ -107,6 +107,7 @@ function load_cur_text() {
     globalThis.responses = {}
     globalThis.responsesExpectedCountUnlock = 0
     globalThis.responsesExpectedCount = 0
+    globalThis.data_now["start_time"] = Date.now()
     load_headers()
     setup_main_text()
 }
@@ -136,7 +137,6 @@ function setup_navigation() {
             load_thankyou()
         } else {
             globalThis.data_now = globalThis.data[globalThis.data_i];
-            globalThis.data_now["start_time"] = Date.now()
             load_cur_text()
         }
 
