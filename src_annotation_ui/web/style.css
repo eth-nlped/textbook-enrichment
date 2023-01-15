@@ -51,6 +51,11 @@
     margin-right: 2%;
 }
 
+a {
+    color: black;
+    font-weight: bold;
+}
+
 .active_response_area div {
     vertical-align: top;
     max-width: 51%;
@@ -83,43 +88,21 @@
     cursor: pointer;
 }
 
-#instruction_area {
-    width: 850px;
+#instruction_area { 
+    width: 1000px;
+    text-align: left;
+}
+
+#instruction_area_big { 
+    width: 1220px;
     text-align: left;
 }
 
 #phases_area {
     text-align: left;
-    width: 300px;
+    width: 150px;
     line-height: 1.8em;
-}
-
-.phase_progress, .phase_done, .phase_locked {
-    width: 100px;
-    text-align: center;
-    border: 2px solid black;
-    padding-bottom: 5px;
-    padding-top: 0px;
-    height: 18px;
-    float: right;
-}
-
-#phases_area .phase_progress {
-    font-weight: bold;
-    background-color: #fdf;
-    border-color: #cbc;
-}
-
-#phases_area .phase_done {
-    font-style: italic;
-    background-color: #dfd;
-    border-color: #bcb;
-}
-
-#phases_area .phase_locked {
-    font-style: italic;
-    background-color: #ddd;
-    border-color: #bbb;
+    vertical-align: bottom;
 }
 
 #but_next, #but_prev {

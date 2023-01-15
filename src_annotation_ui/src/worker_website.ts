@@ -10,7 +10,7 @@ const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 function load_headers() {
     console.log(globalThis.data.length)
     $("#progress").html(`
-        <strong>Progress:</strong> ${globalThis.data_i + 1}/${globalThis.data.length},
+        <strong>Progress:</strong> ${globalThis.data_i + 1}/${globalThis.data.length}<br>
         <strong>UID:</strong> ${globalThis.uid}
     `)
 }
