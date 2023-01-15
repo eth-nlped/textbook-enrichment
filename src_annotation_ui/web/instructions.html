@@ -26,61 +26,84 @@
     <div style="margin-left: auto; margin-right: auto; font-size: x-large;">(Annotation Guidelines)</div>
 
     <div id="instruction_area_big">
-        These guidelines are intended for an evaluation study at ETH Zurich.
-        <br>
+        <!-- These guidelines are intended for an evaluation study at ETH Zurich. -->
+        <!-- <br> -->
         <!-- If you did not, or are unsure, please <a href="big_instructions" target="_blank">read them here</a>. -->
 
 
-        You will be evaluating the performance of an AI-based method that uses web images to assign images to textbook sections.
-        You will be presented with text from a section of a textbook, which is divided into multiple subsections.
-        Each image will be accompanied by questions that ask about the relationship between the text and the image, as well as the relationship between the image and other images in the subsection.
-        At the end of the evaluation, you will be shown all the images again and asked some section-level questions.
-        The goal of this study is to create more engaging and effective learning resources for students.
+        The goal of your task is to help us evaluate our research on Artificial Intelligence (AI) based methods for creating more engaging and effective textbooks for students. 
+        You will be evaluating the performance of various AI-based methods that use images obtained from the internet to assign images to sections of a children’s textbook. 
 
-        In specific, with each image assigned to a subsection, you'll be posed with following questions:
+        <br>
+
+        In the <u>first stage of your evaluation</u>, you will be provided with text from a <b>section</b> of the textbook that has been divided into multiple <b>subsections</b>. 
+        Each subsection will be enclosed within a bounding box and will include images at the end. 
+        Your task is to evaluate the relevance, usefulness, and type of each image with respect to the text <b>only</b> within the same subsection. 
+        You will be asked to answer the following questions regarding these evaluations:
+
         <ul>
-            <li>Is this image relevant to educational concepts described in the subsection shown here?</li>
-            <li>Is this image redundant as compared to images shown previously in this subsection?</li>
-            <li>Is this image didactically useful for explaining the concept(s) described in subsection text?</li>
-            <li>What is the type of this image?</li>
-            <li>Is this image relevant to the educational concepts described in the section shown here?</li>
-            <li>Is this image redundant as compared to the images shown previously at the end of this section? select one: (a) yes; (b) no; (c) undecided.</li>
-            <li>Is this image didactically useful for explaining the concept(s) described in section text?</li>
+            <li>Is this image <b>relevant</b> to educational concepts described in this <i>subsection</i> text?</li>
+            <li>Is this image <b>redundant</b> as compared to images presented above this image <i>in the subsection</i>?</li>
+            <li>Is this image <b>didactically useful</b> for explaining the concept(s) described in this <i>subsection</i> text?</li>
+            <li>What is the <b>type</b> of this image?</li>
         </ul>
+
+        In the <u>second stage of the evaluation</u>, you will be reviewing the same subsections and images as before. 
+        Your task is to evaluate the relevance, usefulness, and redundancy of each image in relation to the text and images within <b>all</b> the subsections in this section. 
+        You will be provided with following specific questions to guide your evaluations:
         
+        <ul>
+            <li>Is this image <b>relevant</b> to the educational concepts described in the <i>section</i> shown here?</li>
+            <li>Is this image <b>redundant</b> as compared to the images presented above this image in the <i>section</i>?</li>
+            <li>Is this image <b>didactically useful</b> for explaining the concept(s) described in <i>section</i> text?</li>
+        </ul>
+
+        <u>Note</u>: It is important to complete the questions for the first stage before moving on to the second stage. 
+        Additionally, please make sure to read the sections that do not have any images during the first stage, as they will be useful for answering the questions in the second stage.
+
         <!-- <ul>
             <li>Finally, at the end of the section, you will be presented with all the images again and asked questions as mentioned below. The purpose of the end-of-section questions is to determine the relevance, redundancy, and educational usefulness of the images in relation to subsections other than those assigned by the AI-based method.</li>
         </ul> -->
 
-        Definition of Options (will also be shown during the annotation)
+        <hr>
 
-        Options concerning relevancy questions: 
-        <ul>
-            <li>relevant: some concept described in the subsection text is picturised in the image; </li>
-            <li>somewhat-relevant: image is loosely on the same subject/topic domain as the subsection text, but is not exactly about the same concepts; </li>
-            <li>irrelevant: not at all related to the subsection text.</li>
-            <li>undecided: unable to make a decision, maybe because of my low understanding of the text or image.</li>
-        </ul>
-        
-        Options concerning redundancy questions: 
-        <ul>
-            <li>yes: this image illustrates exactly the same concept as one of the previously shown images in the subsection (or whole page);</li>
-            <li>no: this image illustrates atleast some unique concepts as compared to the previously shown images in the subsection (or whole page);</li>
-            <li>undecided: unable to make a decision, maybe because I do not understand the concepts illustrated by this image.</li>
-        </ul>
+        <!-- <br> -->
 
-        Options concerning didactic usefulness questions:
-        <ul>
-            <li>yes: image will be appropriate for teaching the section to a student - I would like it here (with an appropriate caption) if I was learning from this textbook;</li>
-            <li>no: image is not appropriate for teaching the section text; </li>
-            <li>undecided: unable to make the decision, maybe because of my less understanding of the text or image.</li>
-        </ul>
-
-        Please answer the questions as they appear in the section layout, since order is important for redundancy related questions. 
+        <u><b>Explanation of Response Choices for Questions</b></u> <br> (will also be shown during the annotation)
 
         <br>
-        Layout of an <em>example section</em>:
+
+        Choices concerning <b>relevancy</b> questions: 
         <ul>
+            <li><i>relevant</i>: some concept described in the subsection/section text is picturised in the image; </li>
+            <li><i>somewhat-relevant</i>: image is loosely on the same subject/topic domain as the subsection/section text, but is not exactly about the same concepts; </li>
+            <li><i>irrelevant</i>: not at all related to the subsection/section text.</li>
+            <li><i>undecided</i>: unable to make a decision, maybe because of my low understanding of the text or image.</li>
+        </ul>
+
+        <br>
+        
+        Choices concerning <b>redundancy</b> questions: 
+        <ul>
+            <li><i>yes</i>: this image illustrates exactly the same concept as one of the previously shown images in the section;</li>
+            <li><i>no</i>: this image illustrates atleast some unique concepts as compared to the previously shown images in the section;</li>
+            <li><i>undecided</i>: unable to make a decision, maybe because I do not understand the concepts illustrated by this image.</li>
+        </ul>
+
+        <br>
+
+        Choices concerning <b>didactic-usefulness</b> questions:
+        <ul>
+            <li><i>yes</i>: image will be appropriate for teaching the subsection/section to a student - I would like it here (with an appropriate caption) if I was learning from this textbook;</li>
+            <li><i>no</i>: image is not appropriate for teaching the subsection/section text; </li>
+            <li><i>undecided</i>: unable to make the decision, maybe because of my less understanding of the text or image.</li>
+        </ul>
+
+        <!-- Please answer the questions as they appear in the section layout, since order is important for redundancy related questions.  -->
+
+        <!-- <br> -->
+        <!-- Layout of an <em>example section</em>: -->
+        <!-- <ul>
             <li>book details</li>
             <li>learning objectives of this section</li>
             <br>
@@ -96,7 +119,7 @@
             <li>text from subsection 4</li>
             <li>image 4 and subsection-level questions</li>
             <li>image 5 and subsection-level questions</li>
-            <li>image 6 and subsection-level questions</li>
+            <li>image 6 and subsection-level questions</li> -->
             <!-- <li></li>
             <li>image 1 and section-level questions</li>
             <li>image 2 and section-level questions</li>
@@ -104,7 +127,7 @@
             <li>image 4 and section-level questions</li>
             <li>image 5 and section-level questions</li>
             <li>image 6 and section-level questions</li> -->
-        </ul>
+        <!-- </ul> -->
 
 
 
