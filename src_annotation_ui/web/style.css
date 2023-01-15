@@ -63,6 +63,8 @@
     max-width: 40%;
     margin-left: 5px;
     margin-right: 5px;
+    /* some images are transparent */
+    background-color: white;
 }
 
 a {
