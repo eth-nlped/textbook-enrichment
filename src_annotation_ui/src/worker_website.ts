@@ -25,7 +25,7 @@ function check_unlocks() {
         })
     }
     let unlock_next = Object.keys(globalThis.responses).every((k, index, array) =>{
-        return Object.keys(globalThis.responses[k]).length >= 4
+        return Object.keys(globalThis.responses[k]).length >= 6
     })
     if (unlock_next) {
         $("#but_next").prop("disabled", false);
