@@ -4,6 +4,7 @@
 /logs
 /data_bigrets
 node_modules
+prolific_pilot_1
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
