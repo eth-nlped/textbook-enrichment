@@ -17,11 +17,12 @@ function load_headers() {
 
 function check_unlocks() {
     let unlock_global = Object.keys(globalThis.responses).every((k, index, array) =>{
-        return Object.keys(globalThis.responses[k]).length >= 4
+        return Object.keys(globalThis.responses[k]).length >= 3
     })
     if (unlock_global) {
-        $(".active_response_area:not([template]) input[disabled]").each((index, el) => {
-            $(el).removeAttr("disabled")
+        $(".active_response_area:not([template]) .global_disabled").each((index, el) => {
+            // remove display: none style attr
+            $(el).removeAttr("style")
         })
     }
     let unlock_next = Object.keys(globalThis.responses).every((k, index, array) =>{
@@ -141,7 +142,7 @@ function setup_navigation() {
             load_cur_text()
         }
 
-        $("#but_prev").prop("disabled", globalThis.data_i == 0);
+        // $("#but_prev").prop("disabled", globalThis.data_i == 0);
         $("#but_next").prop("disabled", globalThis.data_i == globalThis.data.length-1);
     })
     

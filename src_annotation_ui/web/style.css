@@ -97,6 +97,11 @@ a {
     width: 130px;
 }
 
+.global_disabled { 
+    width: 100%;
+    max-width: 100% !important;
+}
+
 .instructions_next_button {
     width: 120px;
     margin-top: 10px;

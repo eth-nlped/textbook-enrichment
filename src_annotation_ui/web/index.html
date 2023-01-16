@@ -23,7 +23,7 @@
 
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto&display=swap'>
-    <link rel='stylesheet' type='text/css' href='style.css?r=11'> 
+    <link rel='stylesheet' type='text/css' href='style.css?r=12'> 
 </head>
 
 <body style='text-align: center; margin-bottom: 20px; background-color: #ebe2d9;'>
@@ -108,32 +108,34 @@
                 <input multiplechoice group="l_what_included" type="button" value="other">
                 <span class="check_hint">(check all that apply)</span>
                 <br><br>
-
-                Is this image relevant to educational concepts described in this <i>section</i>?<br>
-                <input disabled group="l_global_relevant" type="button" value="irrelevant">
-                <input disabled group="l_global_relevant" type="button" value="somewhat relevant">
-                <input disabled group="l_global_relevant" type="button" value="relevant">
-                <input disabled group="l_global_relevant" type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
-                <br><br>
                 
-                Is this image redundant compared to previous images in this <i>section</i>?<br>
-                <input disabled group="l_global_redundancy" type="button" value="no">
-                <input disabled group="l_global_redundancy" type="button" value="yes">
-                <input disabled group="l_global_redundancy" type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
-                
-                <br><br>
-                Is this image didactically useful for explaining this <i>section</i> text?<br>
-                <input disabled group="l_global_useful" type="button" value="no">
-                <input disabled group="l_global_useful" type="button" value="yes">
-                <input disabled group="l_global_useful" type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
+                <div class="global_disabled" style="display: none;">
+                    Is this image relevant to educational concepts described in this <i>section</i>?<br>
+                    <input group="l_global_relevant" type="button" value="irrelevant">
+                    <input group="l_global_relevant" type="button" value="somewhat relevant">
+                    <input group="l_global_relevant" type="button" value="relevant">
+                    <input group="l_global_relevant" type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    <br><br>
+                    
+                    Is this image redundant compared to previous images in this <i>section</i>?<br>
+                    <input group="l_global_redundancy" type="button" value="no">
+                    <input group="l_global_redundancy" type="button" value="yes">
+                    <input group="l_global_redundancy" type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                    
+                    <br><br>
+                    Is this image didactically useful for explaining this <i>section</i> text?<br>
+                    <input group="l_global_useful" type="button" value="no">
+                    <input group="l_global_useful" type="button" value="yes">
+                    <input group="l_global_useful" type="button" value="undecided">
+                    <span class="check_hint">(select one)</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src='web-source.js?r=11'></script>
+    <script src='web-source.js?r=12'></script>
 </body>
 
 </html>
