@@ -97,9 +97,20 @@ a {
     width: 130px;
 }
 
-.global_disabled { 
+.local_questions, .global_questions { 
     width: 100%;
     max-width: 100% !important;
+    padding: 5px
+}
+
+.global_questions { 
+    background-color: #dbda9b;
+}
+
+.local_questions { 
+    background-color: #b1ab74;
+    margin-bottom: 5px;
+    padding-bottom: -5px;
 }
 
 .instructions_next_button {

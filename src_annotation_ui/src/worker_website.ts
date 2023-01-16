@@ -20,7 +20,7 @@ function check_unlocks() {
         return Object.keys(globalThis.responses[k]).length >= 3
     })
     if (unlock_global) {
-        $(".active_response_area:not([template]) .global_disabled").each((index, el) => {
+        $(".active_response_area:not([template]) .global_questions").each((index, el) => {
             // remove display: none style attr
             $(el).removeAttr("style")
         })
