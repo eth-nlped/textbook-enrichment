@@ -38,7 +38,12 @@ async function get_uid_and_data() {
             globalThis.uid = UID_maybe!;
         }
 
+        let old_uid = globalThis.uid
         globalThis.uid = prolific_rewrite_uid(globalThis.uid);
+        if (old_uid != globalThis.uid) {
+            document.location.href = document.location.href.replace("?uid="+old_uid, "?uid="+globalThis.uid);
+        }
+
 
         await load_data().then((data: any) => {
             globalThis.data = data

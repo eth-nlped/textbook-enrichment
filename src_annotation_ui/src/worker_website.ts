@@ -11,8 +11,9 @@ const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 function load_headers() {
     $("#progress").html(`
         <strong>Progress:</strong> ${globalThis.data_i + 1}/${globalThis.data.length}<br>
-        <strong>UID:</strong> ${globalThis.uid}
-    `)
+        Complete all questions before continuing
+        `)
+        // <strong>UID:</strong> ${globalThis.uid}
 }
 
 function check_unlocks() {
@@ -28,7 +29,6 @@ function check_unlocks() {
     let unlock_next = Object.keys(globalThis.responses).every((k, index, array) =>{
         return Object.keys(globalThis.responses[k]).length >= 6
     })
-    unlock_next = true
     if (unlock_next) {
         $("#but_next").prop("disabled", false);
     }
@@ -119,9 +119,8 @@ function load_thankyou() {
     load_headers()
     let html_text = `Thank you for participating in our study. `;
     if (globalThis.uid.startsWith("prolific_pilot_1")) {
-        // TODO!!!
-        html_text += `<br>TODO Please click <a href="https://app.prolific.co/submissions/complete?cc=XXXXXX">this link</a> to go back to Prolific. `
-        html_text += `Alternatively use this code <em>XXXX</em>.`
+        html_text += `<br>Please click <a href="https://app.prolific.co/submissions/complete?cc=C1FV7L5F">this link</a> to go back to Prolific. `
+        html_text += `Alternatively use this code <em>C1FV7L5F</em>.`
     }
     main_text_area.html(html_text);
 }
@@ -132,7 +131,7 @@ function setup_navigation() {
 
         globalThis.data_now["end_time"] = Date.now()
         globalThis.data_now["responses"] = globalThis.responses
-        // log_data(globalThis.data_now)
+        log_data(globalThis.data_now)
         
         if (globalThis.data_i >= globalThis.data.length) {
             globalThis.data_i = 0;
@@ -143,7 +142,7 @@ function setup_navigation() {
         }
 
         // $("#but_prev").prop("disabled", globalThis.data_i == 0);
-        $("#but_next").prop("disabled", globalThis.data_i == globalThis.data.length-1);
+        $("#but_next").prop("disabled", true);
     })
     
     // $("#but_prev").on("click", () => {
