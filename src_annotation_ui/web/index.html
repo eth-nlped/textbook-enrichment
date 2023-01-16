@@ -17,13 +17,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script>
         function resizeIframe(obj) {
-            obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            obj.style.height = (obj.contentWindow.document.documentElement.scrollHeight+20) + 'px';
         }
     </script>
 
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Roboto&display=swap'>
-    <link rel='stylesheet' type='text/css' href='style.css?r=9'> 
+    <link rel='stylesheet' type='text/css' href='style.css?r=10'> 
 </head>
 
 <body style='text-align: center; margin-bottom: 20px; background-color: #ebe2d9;'>
@@ -123,17 +123,17 @@
                 <input disabled group="l_global_redundancy" type="button" value="undecided">
                 <span class="check_hint">(select one)</span>
                 
-                Is this image didactically useful for explaining this <i>section</i> text?<br>
-                <input group="l_global_useful" type="button" value="no">
-                <input group="l_global_useful" type="button" value="yes">
-                <input group="l_global_useful" type="button" value="undecided">
-                <span class="check_hint">(select one)</span>
                 <br><br>
+                Is this image didactically useful for explaining this <i>section</i> text?<br>
+                <input disabled group="l_global_useful" type="button" value="no">
+                <input disabled group="l_global_useful" type="button" value="yes">
+                <input disabled group="l_global_useful" type="button" value="undecided">
+                <span class="check_hint">(select one)</span>
             </div>
         </div>
     </div>
 
-    <script src='web-source.js?r=10'></script>
+    <script src='web-source.js?r=11'></script>
 </body>
 
 </html>

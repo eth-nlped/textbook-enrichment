@@ -27,6 +27,7 @@ function check_unlocks() {
     let unlock_next = Object.keys(globalThis.responses).every((k, index, array) =>{
         return Object.keys(globalThis.responses[k]).length >= 6
     })
+    unlock_next = true
     if (unlock_next) {
         $("#but_next").prop("disabled", false);
     }
@@ -130,7 +131,7 @@ function setup_navigation() {
 
         globalThis.data_now["end_time"] = Date.now()
         globalThis.data_now["responses"] = globalThis.responses
-        log_data(globalThis.data_now)
+        // log_data(globalThis.data_now)
         
         if (globalThis.data_i >= globalThis.data.length) {
             globalThis.data_i = 0;
