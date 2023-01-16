@@ -6,9 +6,9 @@ import os
 import re
 
 args = argparse.ArgumentParser()
-args.add_argument("--files", default="data/formatted_htmls/**/*.htm")
-args.add_argument("--input-replace", default="data/formatted_htmls")
-args.add_argument("--output-replace", default="src_annotation_ui/web/texts/")
+args.add_argument("--files", default="src_annotation_ui/web/texts/**/*.htm")
+args.add_argument("--input-replace", default="")
+args.add_argument("--output-replace", default="")
 args = args.parse_args()
 
 BAD_RGSX = [
