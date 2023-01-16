@@ -45,6 +45,12 @@ async function get_uid_and_data() {
             globalThis.data_now = globalThis.data[globalThis.data_i];
             setup_navigation()
             load_cur_text()
+            
+            if (globalThis.prolific_pid == undefined) {
+                $("#read_instructions").attr("href", `instructions_1.html?uid=${globalThis.uid}`)
+            } else {
+                $("#read_instructions").attr("href", `instructions_1.html?uid=${globalThis.uid}?prolific_pid=${globalThis.prolific_pid}`)
+            }
         }).catch((reason: any) => {
             console.error(reason)
             alert("Invalid UID " + globalThis.uid);

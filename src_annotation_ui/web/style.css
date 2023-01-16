@@ -97,6 +97,11 @@ a {
     width: 130px;
 }
 
+.instructions_next_button {
+    width: 120px;
+    margin-top: 10px;
+}
+
 .active_response_area div input[multiplechoice] {
     width: 150px;
 }
