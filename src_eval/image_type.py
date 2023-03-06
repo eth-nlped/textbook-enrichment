@@ -105,14 +105,14 @@ for category_i, category in enumerate(CATEGORIES):
         ax.add_patch(triangle)
         plt.text(
             type_i+0.25, category_i+0.2,
-            f"{val:.1f}",
+            f"{abs(val-VMIN)/(VMAX-VMIN)*9:.0f}",
             va="center", ha="center",
             color = "white" if val < 2.3 else "black",
         )
         if not override_gold:
             plt.text(
                 type_i-0.25, category_i-0.2,
-                f"{val_gold:.1f}",
+                f"{abs(val_gold-VMIN)/(VMAX-VMIN)*9:.0f}",
                 va="center", ha="center",
                 color = "white" if val_gold < 2.3 else "black",
             )
