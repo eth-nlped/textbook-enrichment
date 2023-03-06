@@ -65,6 +65,9 @@ for category in CATEGORIES:
         for pos in [0, 1, 2, 3]
     ]
 
+    if category == "l_global_useful":
+        data_local = [[4-v for v in y] for y in data_local]
+
     intervals = [mean_confidence_interval(x) for x in data_local]
     ax.fill_between(
         [-0.1,1,2,3.1],
@@ -82,7 +85,7 @@ for category in CATEGORIES:
     )
 
 plt.xlim(-0.1, 3.1)
-plt.yticks([1.3, 2.6], ["Worse", "Better"])
+plt.yticks([1.3, 2.9], ["Worse", "Better"])
 plt.xticks(range(4), range(4))
 plt.xlabel("Position in evaluation")
 plt.legend(bbox_to_anchor=(-0.15, 1, 1.15, 0), loc="lower left", mode="expand", ncol=2)
