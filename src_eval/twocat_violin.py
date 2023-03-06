@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import argparse
 from matplotlib.lines import Line2D
+import fig_utils
 
 args = argparse.ArgumentParser()
 args.add_argument("-c", "--categories", default="relevancy")
@@ -79,7 +80,7 @@ violin_parts_left = plt.violinplot(
 )
 
 for pc in violin_parts_left['bodies']:
-    pc.set_facecolor("tab:red")
+    pc.set_facecolor(fig_utils.COLORS[1])
     pc.set_edgecolor('black')
     pc.set_linewidth(1.2)
     pc.set_alpha(0.75)
@@ -108,7 +109,7 @@ violin_parts_right = plt.violinplot(
 )
 
 for pc in violin_parts_right['bodies']:
-    pc.set_facecolor("tab:blue")
+    pc.set_facecolor(fig_utils.COLORS[0])
     pc.set_edgecolor('black')
     pc.set_linewidth(1.2)
     pc.set_alpha(0.75)
@@ -141,8 +142,8 @@ elif args.categories == "redundancy":
 
 
 legend_lines = [
-    Line2D([0], [0], lw=0, marker="s", color="tab:red", markeredgecolor="black"),
-    Line2D([0], [0], lw=0, marker="s", color="tab:blue", markeredgecolor="black")]
+    Line2D([0], [0], lw=0, marker="s", color=fig_utils.COLORS[1], markeredgecolor="black"),
+    Line2D([0], [0], lw=0, marker="s", color=fig_utils.COLORS[0], markeredgecolor="black")]
 
 if args.categories == "relevancy":
     plt.legend(
