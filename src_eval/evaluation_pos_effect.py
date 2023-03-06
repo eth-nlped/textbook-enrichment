@@ -8,6 +8,14 @@ import numpy as np
 import argparse
 from matplotlib.lines import Line2D
 import fig_utils
+import scipy.stats
+
+def mean_confidence_interval(data, confidence=0.90):
+    a = 1.0 * np.array(data)
+    n = len(a)
+    m, se = np.mean(a), scipy.stats.sem(a)
+    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1)
+    return m, m-h, m+h
 
 
 data = [
@@ -27,6 +35,8 @@ ANSWER_TO_NUM = {
 }
 
 plt.figure(figsize=(4,3))
+ax = plt.gca()
+
 for category in CATEGORIES:
     data_local = [
         [
@@ -55,6 +65,14 @@ for category in CATEGORIES:
         for pos in [0, 1, 2, 3]
     ]
 
+    intervals = [mean_confidence_interval(x) for x in data_local]
+    ax.fill_between(
+        [-0.1,1,2,3.1],
+        [x[1] for x in intervals],
+        [x[2] for x in intervals],
+        alpha=0.3
+    )
+
     plt.plot(
         [0,1,2,3],
         [np.average(data_local[pos]) for pos in [0,1,2,3]],
@@ -63,6 +81,7 @@ for category in CATEGORIES:
         label=category.replace("_", " ").removeprefix("l ").replace("relevant", "relevancy").replace("useful", "usefulness").capitalize(),
     )
 
+plt.xlim(-0.1, 3.1)
 plt.yticks([1.3, 2.6], ["Worse", "Better"])
 plt.xticks(range(4), range(4))
 plt.xlabel("Position in evaluation")
