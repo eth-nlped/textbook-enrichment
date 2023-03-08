@@ -62,7 +62,7 @@ img = np.zeros((len(CATEGORIES), len(types_names)))
 plt.figure(figsize=(4.5, 3))
 ax = plt.gca()
 
-cmap = mpl.cm.get_cmap("inferno").copy()
+cmap = mpl.cm.get_cmap("Greens").copy()
 VMIN = 1.9
 VMAX = 3
 
@@ -100,22 +100,23 @@ for category_i, category in enumerate(CATEGORIES):
             np.array([[a_i, s_i], [a_i + 1, s_i], [a_i, s_i + 1]]) - 0.5,
             # color input needs to be normalized
             # skip if gold does not have value
-            color=cmap((val_gold - VMIN) / (VMAX - VMIN)) if not override_gold else "white"
+            color=cmap((val_gold - VMIN) / (VMAX - VMIN)) if not override_gold else "black"
         )
         ax.add_patch(triangle)
         plt.text(
             type_i+0.25, category_i+0.2,
             f"{abs(val-VMIN)/(VMAX-VMIN)*9:.0f}",
             va="center", ha="center",
-            color = "white" if val < 2.3 else "black",
+            color = "white" if val > 2.7 else "black",
         )
         if not override_gold:
             plt.text(
                 type_i-0.25, category_i-0.2,
                 f"{abs(val_gold-VMIN)/(VMAX-VMIN)*9:.0f}",
                 va="center", ha="center",
-                color = "white" if val_gold < 2.3 else "black",
+                color = "white" if val_gold > 2.7 else "black",
             )
+        
         img[category_i, type_i] = val
 
 plt.imshow(img, cmap=cmap, vmin=VMIN, vmax=VMAX, aspect=0.8, norm=None)
@@ -142,7 +143,8 @@ ax.add_patch(triangle)
 plt.text(
     a_i-0.15, s_i-0.2,
     "Gold",
-    va="center", ha="center"
+    va="center", ha="center",
+    color="white"
 )
 plt.text(
     a_i+0.35, s_i+0.4,
