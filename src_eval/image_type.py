@@ -77,7 +77,7 @@ for category_i, category in enumerate(CATEGORIES):
             for x in data_types_gold[type_name] if ANSWER_TO_NUM[x[category]]
         ]
         override_gold = False
-        if category == "l_global_redundancy" and type_name == "table":
+        if len(val_gold) <= 5:
             override_gold = True
         if not val_gold:
             override_gold = True
@@ -153,9 +153,11 @@ plt.text(
 plt.xticks(
     range(len(types_names)),
     [
-        ("\n\n" if i % 2 else "") + c.replace(" / ", " ").replace(" ", "\n").capitalize()
+        # ("\n\n" if i % 2 else "") + c.replace(" / ", " ").replace(" ", "\n").capitalize()
+        c.replace(" / ", " ").replace(" ", "\n").capitalize()
         for i, c in enumerate(types_names)
-    ]
+    ],
+    rotation=45
 )
 plt.yticks(
     range(len(CATEGORIES)),
