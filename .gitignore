@@ -1,11 +1,12 @@
 # added by zouharvi
-/data
-/data_eval
+data
+data_eval
 /computed
 /logs
 /data_bigrets
 node_modules
 prolific_pilot_1
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
