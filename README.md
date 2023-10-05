@@ -9,14 +9,18 @@
 > Through a crowd-sourced evaluation, we verify that (1) while the original textbook images are rated higher, automatically-assigned ones are not far behind, and (2) the precise formulation of the optimization problem matters.
 > We release the dataset of textbooks with an associated image bank to spur further research in this intersectional area of NLP and computer vision for education.
 
-<img width="340em" src="meta/figure_1.png" alt="Illustration of good and bad image assignments. The first subsection does not require an image. The second subsection in the bad assignment has a related image but without a strong connection. Likewise, the last subsection has a picture of Calvin, which is related but does not have a high pedagogical value.">
+<img width="370em" src="meta/figure_1.png" alt="Illustration of good and bad image assignments. The first subsection does not require an image. The second subsection in the bad assignment has a related image but without a strong connection. Likewise, the last subsection has a picture of Calvin, which is related but does not have a high pedagogical value.">
 
 
 ## OpenStax Dataset
 
 This dataset offers a granular representation of OpenStax books, encapsulating their content hierarchically from books to chapters, sections, and finally, subsections. It is designed to efficiently capture textual content, images, and specific terms of interest within books.
 
-To load, run `download_dataset.sh` (will download first texts and then images) and then 
+To load, run `download_dataset.sh` after cloning this repository or the one-liner:
+```bash
+curl -Lo- "https://raw.githubusercontent.com/eth-nlped/textbook-enrichment/main/download_dataset.sh" | bash
+```
+This will download first texts and then images and stores them in `data/`. You can then load it in Python:
 ```python
 import json
 data = json.load(open("data/openstax_dataset_v1.json", "r"))
