@@ -56,8 +56,9 @@ Sample Access Patterns:
 
 ## Misc.
 
-Read [the paper](https://arxiv.org/abs/2304.08931) and cite as:
+The human annotation results are stored in `data_eval/`.
 
+Read [the EMNLP 2023 paper](https://arxiv.org/abs/2304.08931) and cite as:
 ```
 @misc{singh2023enhancing,
     title={Enhancing Textbooks with Visuals from the Web for Improved Learning}, 
@@ -69,4 +70,7 @@ Read [the paper](https://arxiv.org/abs/2304.08931) and cite as:
 }
 ```
 
-The human annotation results are stored in `data_eval/`.
+
+[![Paper video presentation](https://img.youtube.com/vi/zjKayShiBxc/0.jpg)](https://www.youtube.com/watch?v=zjKayShiBxc)
+
+<img width="400em" src="meta/poster.png">
