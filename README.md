@@ -58,15 +58,21 @@ Sample Access Patterns:
 
 The human annotation results are stored in `data_eval/`.
 
-Read [the EMNLP 2023 paper](https://arxiv.org/abs/2304.08931) and cite as:
+Read [the EMNLP 2023 paper](https://aclanthology.org/2023.emnlp-main.731/) and cite as:
 ```
-@misc{singh2023enhancing,
-    title={Enhancing Textbooks with Visuals from the Web for Improved Learning}, 
-    author={Janvijay Singh and Vilém Zouhar and Mrinmaya Sachan},
-    year={2023},
-    eprint={2304.08931},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{singh-etal-2023-enhancing,
+    title = "Enhancing Textbooks with Visuals from the Web for Improved Learning",
+    author = "Singh, Janvijay  and
+      Zouhar, Vil{\'e}m  and
+      Sachan, Mrinmaya",
+    booktitle = "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.emnlp-main.731",
+    doi = "10.18653/v1/2023.emnlp-main.731",
+    pages = "11931--11944"
 }
 ```
 
