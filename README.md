@@ -76,7 +76,7 @@ Read [the EMNLP 2023 paper](https://aclanthology.org/2023.emnlp-main.731/) and c
 }
 ```
 
-## YouTube Presentation
+## YouTube Presentation & Poster
 
 [<img src="https://img.youtube.com/vi/zjKayShiBxc/maxresdefault.jpg" width=400px>](https://www.youtube.com/watch?v=zjKayShiBxc)
 
